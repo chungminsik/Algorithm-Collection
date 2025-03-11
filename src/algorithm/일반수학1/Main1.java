@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main1 {
     public static void main(String[] args) {
-        Question q = new 진법변환1();
+        Question q = new 진법변환2();
         q.start();
 
     }
@@ -23,5 +23,39 @@ class 진법변환1 implements Question{
         sc.close();
 
         System.out.println(Integer.parseInt(number, radix));
+    }
+}
+
+class 진법변환2 implements Question{
+
+    @Override
+    public void start() {
+        Scanner sc = new Scanner(System.in);
+
+        String number = sc.next();
+        int radix = sc.nextInt();
+        sc.close();
+
+        System.out.println(convertRadix(number, radix));
+    }
+
+    private static int convertRadix(String number, int radix){
+        int returnValue = 0;
+        int numberLength = number.length();
+
+        for (int i = 0; i < numberLength; i++){
+            char digitChar = number.charAt(i);
+            int digitValue;
+
+            if (Character.isDigit(digitChar)){
+                digitValue = digitChar - '0';
+            } else{
+                digitValue = Character.toUpperCase(digitChar) - 'A' + 10;
+            }
+
+            returnValue = returnValue * radix + digitValue;
+        }
+
+        return returnValue;
     }
 }
