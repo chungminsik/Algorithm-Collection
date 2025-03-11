@@ -1,6 +1,6 @@
 package dataStructure.List;
 
-public class MyArrayList<T> implements MyLIst<T>{
+public class MyArrayList<T> implements MyList<T> {
 
     private T[] array;
     private int size;

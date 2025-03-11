@@ -1,6 +1,6 @@
 package dataStructure.List;
 
-public interface MyLIst<T> {
+public interface MyList<T> {
 
     void add(T param);
 
