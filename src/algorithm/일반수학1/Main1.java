@@ -6,13 +6,13 @@ import java.util.Scanner;
 
 public class Main1 {
     public static void main(String[] args) {
-        Question q = new 진법변환2();
+        Question q = new 진법변환1_2();
         q.start();
 
     }
 }
 
-class 진법변환1 implements Question{
+class 진법변환1_1 implements Question{
 
     @Override
     public void start() {
@@ -26,7 +26,7 @@ class 진법변환1 implements Question{
     }
 }
 
-class 진법변환2 implements Question{
+class 진법변환1_2 implements Question{
 
     @Override
     public void start() {
