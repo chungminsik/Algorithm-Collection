@@ -1,7 +1,5 @@
 package algorithm.일반수학1;
 
-import algorithm.Question;
-
 import java.util.Scanner;
 
 public class Main5 {
