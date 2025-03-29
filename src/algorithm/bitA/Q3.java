@@ -24,6 +24,7 @@ public class Q3 {
             scheduleIntervals[i][1] = interval[1];
         }
 
+        //参考書リンク
         // 시작 시각 기준으로 오름차순 정렬
         Arrays.sort(scheduleIntervals, (a, b) -> Integer.compare(a[0], b[0]));
 

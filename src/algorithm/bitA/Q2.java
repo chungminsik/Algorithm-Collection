@@ -19,6 +19,7 @@ public class Q2 {
 
     }
 
+    //バックトラッキング
     //백트래킹을 이용해 모든 경우의 수의 보드를 만들기
     //count : 장애물을 놓았는지 세는 변수
     private static void generateBoard(boolean[][] board, int pos, int count){
@@ -66,6 +67,7 @@ public class Q2 {
         return 0;
     }
 
+    //dfsアルゴリズムリンク
     // DFS: (row, col)에서 시작해 현재까지 count개의 빈 칸을 방문했을 때,
     // 전체 total개의 빈 칸을 모두 방문할 수 있으면 true, 아니면 false
     private static boolean dfs(int row, int col, int count, int total, boolean[][] board, boolean[][] visited) {
