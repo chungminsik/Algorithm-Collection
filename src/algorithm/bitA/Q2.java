@@ -22,6 +22,14 @@ public class Q2 {
     //バックトラッキング
     //백트래킹을 이용해 모든 경우의 수의 보드를 만들기
     //count : 장애물을 놓았는지 세는 변수
+
+    /**
+     * @logic 백트래킹과 재귀를 이용해서 120가지의 장애물 정보를 담은 배열을 생성합니다. 배열을 생성함과 동시에 startSearch()를 이용해 14개의 노드가 모두 이어져 있는 경우의 수가 있는지 계산합니다.
+     *
+     * @param board 장애물 정보를 담을 [4][4] 형태의 빈 배열을 초기에 할당해줍니다. 이후 재귀를 돌면서
+     * @param pos
+     * @param count
+     */
     private static void generateBoard(boolean[][] board, int pos, int count){
 
         //장애물 다 놓았으니 계산하러 가기
