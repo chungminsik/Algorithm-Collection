@@ -1,4 +1,4 @@
-package algorithm.bitA;
+package algorithm.bitA_Algorithm;
 
 /**
  * 1. 순열을 만든다 2. 계산을 한다 3. 계산한 꼭대기를 모두 더한다

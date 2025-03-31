@@ -1,4 +1,4 @@
-package algorithm.bitA;
+package algorithm.bitA_Algorithm;
 
 /**
  * 1. 120가지의 장애물을 놓을 수 있는 경우의 수의 2차원 배열을 생성 (백트래킹)
