@@ -43,7 +43,9 @@ public class Q1 {
         for (int i = 0; i < 9; i++){
             if (!usedNum[i]){
                 perm[depth] = i;
+
                 usedNum[i] = true;
+
                 executeCompute(perm, usedNum, depth+1);
 
                 //만약 depth가 9가 되면 숫자를 더하고 여기로 리턴됨
