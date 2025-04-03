@@ -1,4 +1,4 @@
-package algorithm.bitA;
+package algorithm.bitA_Algorithm;
 
 import java.util.Arrays;
 import java.util.Scanner;

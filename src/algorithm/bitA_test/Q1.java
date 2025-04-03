@@ -1,18 +1,18 @@
-package algorithm.제출용;
+package algorithm.bitA_test;
 
 
 /**
- * 所要時間：
+ * 所要時間：3時間
  * 参考リンク：
- * youtube : https://www.youtube.com/watch?v=MolDbkwapzU&list=PLDV-cCQnUlIaAKZbfdkMU01MrMkeTvVgP&index=1
- * 　https://www.youtube.com/watch?v=Ar40zcPoKEI&list=PLDV-cCQnUlIaAKZbfdkMU01MrMkeTvVgP&index=2
- * 　https://www.youtube.com/watch?v=gVijWUHWzAU&list=PLDV-cCQnUlIaAKZbfdkMU01MrMkeTvVgP&index=3
- * 　https://www.youtube.com/watch?v=lhy9mtUqZGc&list=PLDV-cCQnUlIaAKZbfdkMU01MrMkeTvVgP&index=4
- * 　https://www.youtube.com/watch?v=Enz2csssTCs
+ * バックトラッキング（順列を作る）
+ * https://www.youtube.com/watch?v=MolDbkwapzU&list=PLDV-cCQnUlIaAKZbfdkMU01MrMkeTvVgP&index=1
+ * https://www.youtube.com/watch?v=Ar40zcPoKEI&list=PLDV-cCQnUlIaAKZbfdkMU01MrMkeTvVgP&index=2
+ * https://www.youtube.com/watch?v=gVijWUHWzAU&list=PLDV-cCQnUlIaAKZbfdkMU01MrMkeTvVgP&index=3
+ * https://www.youtube.com/watch?v=lhy9mtUqZGc&list=PLDV-cCQnUlIaAKZbfdkMU01MrMkeTvVgP&index=4
+ * https://www.youtube.com/watch?v=Enz2csssTCs
+ * https://blog.encrypted.gg/945
+ * https://velog.io/@eeheaven/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B0%B1%ED%8A%B8%EB%9E%98%ED%82%B9
  *
- * 練習問題：https://www.acmicpc.net/problem/15649
- * 　https://www.acmicpc.net/problem/15650
- * 　https://www.acmicpc.net/problem/15651
  */
 public class Q1 {
 
