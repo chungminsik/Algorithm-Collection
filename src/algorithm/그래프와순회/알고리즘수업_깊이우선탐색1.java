@@ -21,7 +21,7 @@ public class 알고리즘수업_깊이우선탐색1 {
 
         dfs(r);
 
-        for (int i = 0; i <= n; i++){
+        for (int i = 1; i <= n; i++){
             System.out.println(order[i]);
         }
 
