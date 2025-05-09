@@ -1,11 +1,9 @@
 package dataStructure.stackQueue;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MyStack {
     public static void main(String[] args) {
 
+        /*
         MyStackArray<Integer> stack = new MyStackArray<>();
 
         stack.push(3);
@@ -23,6 +21,10 @@ public class MyStack {
         stack.pop();
 
         stack.printStack();
+         */
+
+        MyMonotonicStack mono = new MyMonotonicStack();
+
     }
 }
 
@@ -31,11 +33,11 @@ public class MyStack {
 class MyStackArray<T>{
 
     private T[] array;
-
     private int arraySize = 10;
     private final int MAXSIZE = 100000;
-    private int top = 0;
 
+    private int top = 0;
+    private int size = 0;
 
     MyStackArray(){
         //Javaでジェネリック型の配列は直接作れない。
@@ -102,32 +104,96 @@ class MyStackArray<T>{
 
 class MyStackArrayList<T>{
 
-    private List<T> stack;
-    private int top;
-
-    MyStackArrayList(){
-        stack = new ArrayList<T>();
-    }
-
-    public void push(T t){
-        stack.add(t);
-        top++;
-    }
-
-    public T pop(){
-        return null;
-    }
-
 }
 
 class MyStackLinkedList<T>{
 
+}
 
-    public void push(T t){
+class MyMonotonicStack{
 
+    int[] monotonicArray;
+    int arraySize = 5;
+
+    int head = 0;
+
+    public MyMonotonicStack(int arraySize){
+        this.arraySize = arraySize;
+        this.monotonicArray = new int[arraySize];
     }
 
-    public T pop(){
-        return null;
+    public MyMonotonicStack(){
+        this.monotonicArray = new int[arraySize];
+    }
+
+    public void increasing(int param){
+        if (head == 0 || param > peak()){
+            push(param);
+            return;
+        }
+
+        while (head > 0 && param <= peak()){
+            pop();
+        }
+
+        push(param);
+    }
+
+    public void decreasing(int param){
+        if (head == 0 || param < peak()){
+            push(param);
+            return;
+        }
+
+        while (head > 0 && param >= peak()){
+            pop();
+        }
+
+        push(param);
+    }
+
+    private void push(int param){
+        if (head == arraySize){
+            throw new IllegalArgumentException("stack is full");
+        }
+
+        monotonicArray[head++] = param;
+    }
+
+    private int pop(){
+        if (head == 0){
+            throw new IllegalArgumentException("stack is empty");
+        }
+
+        return monotonicArray[--head];
+    }
+
+    public int peak(){
+        if (head == 0){
+            throw new IllegalArgumentException("stack is empty");
+        }
+
+        return monotonicArray[head-1];
+    }
+
+    public void printStack(){
+        if (head == 0){
+            System.out.println("empty");
+            return;
+        }
+
+        for (int i =0; i < head; i++){
+            System.out.print(monotonicArray[i] + " ");
+        }
+    }
+
+    public int nextGreatestElement(){
+        if (head == 1){
+            throw new IllegalArgumentException("none");
+        } else if(head == 0){
+            throw new IllegalArgumentException("empty");
+        }
+
+        return monotonicArray[head-2];
     }
 }
