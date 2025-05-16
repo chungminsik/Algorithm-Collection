@@ -1,19 +1,30 @@
 package algorithm;
 
 public class SortAlgorithm {
+
+    public static int[] unSortedArray = {8, 3, 1, 7, 0, 10, 2};
+    public static final int[] correctArray = {0, 1, 2, 3, 7, 8, 10};
+
     public static void main(String[] args) {
 
-        int[] unSortedArray = {3, 5, 1, 4, 2};
+        printSortResult(selectionSort(cloneArray()));
 
-        //printSortResult(selectionSort(unSortedArray));
-        //printSortResult(insertSort(unSortedArray));
-        //printSortResult(mergeSort(unSortedArray, 0, unSortedArray.length-1));
-        printSortResult(helloMergeSort(unSortedArray, 0, unSortedArray.length-1));
+        printSortResult(insertSort(cloneArray()));
+
+        printSortResult(mergeSort(cloneArray(), 0, unSortedArray.length-1));
+
+        printSortResult(quickSort(cloneArray(), 0, unSortedArray.length-1));
+
+
+
+
+    }
+
+    public static int[] cloneArray(){
+        return unSortedArray.clone();
     }
 
     public static void printSortResult(int[] array){
-
-        int[] correctArray = {1, 2, 3, 4, 5};
         boolean result = true;
         StringBuilder sb = new StringBuilder();
 
@@ -33,7 +44,6 @@ public class SortAlgorithm {
     }
 
     public static int[] selectionSort(int[] array){
-        int[] sortedArray = array;
         int currentIndex = 0;
 
         while (array.length != currentIndex){
@@ -52,11 +62,10 @@ public class SortAlgorithm {
             currentIndex++;
         }
 
-        return sortedArray;
+        return array;
     }
 
     public static int[] insertSort(int[] array){
-        int[] sortedArray = array;
 
         for (int i = 1; i < array.length; i++){
             for (int j = i; j > 0; j--){
@@ -69,7 +78,7 @@ public class SortAlgorithm {
 
         }
 
-        return sortedArray;
+        return array;
     }
 
     //順番に分割の命令（分割範囲を指定してメソッドに入れる）
@@ -123,92 +132,43 @@ public class SortAlgorithm {
         return temp;
     }
 
+    //ソートするarrayの範囲
+    //pivot
+    //対象のarray
+    public static int[] quickSort(int[] array, int low, int high){
 
+        if (low < high){ //配列の要素が2個以上
+            //pivot選択
+            int pivotIndex = quick(array, low, high);
 
-
-
-
-    public static int[] helloMergeSort(int[] array, int start, int end){
-
-        if (start < end){
-            int middle = (start + end) / 2;
-
-            helloMergeSort(array, start, middle);
-            helloMergeSort(array, middle + 1, end);
-
-            int[] merged = helloMerge(array, start, middle, end);
-
-            for (int i = 0; i < merged.length; i++){
-                array[start+i] = merged[i];
-            }
+            //pivotにより分割
+            quickSort(array, low, pivotIndex-1);
+            quickSort(array, pivotIndex+1, high);
         }
 
         return array;
     }
 
-    public static int[] helloMerge(int[] array, int start, int middle, int end){
-        int[] temp = new int[end - start + 1];
+    public static int quick(int[] array, int low, int high){
+        int pivot = array[high];
+        int start = low - 1;
 
-        int firstArrayHead = start;
-        int secondArrayHead = middle + 1;
-        int tempHead = 0;
-
-        while(firstArrayHead <= middle && secondArrayHead <= end){
-            if (array[firstArrayHead] <= array[secondArrayHead]){
-                temp[tempHead++] = array[firstArrayHead++];
-            } else {
-                temp[tempHead++] = array[secondArrayHead++];
+        //만약 pivot보다 작으면 스타트 지점에서 하나 큰 인덱스에 값을 이동
+        for (int j = low; j < high; j++){
+            if (array[j] <= pivot){
+                start++;
+                int temp = array[start];
+                array[start] = array[j];
+                array[j] = temp;
             }
         }
 
-        while (firstArrayHead <= middle){
-            temp[tempHead++] = array[firstArrayHead++];
-        }
-        while (secondArrayHead <= end){
-            temp[tempHead++] = array[secondArrayHead++];
-        }
+        //다음 pivot 선택
+        int temp = array[start + 1];
+        array[start + 1] = array[high];
+        array[high] = temp;
 
-        return temp;
-    }
-
-
-
-
-
-
-
-
-
-    static int[] buff;
-    static void mergeSort(int[] a, int n) {
-        buff = new int[n];			// 作業用配列を生成
-
-        __mergeSort(a, 0, n - 1);		// 配列全体をマージソート
-
-        buff = null;				// 作業用配列を解放
-    }
-    //--- a[left]～a[right]を再帰的にマージソート ---//
-    static void __mergeSort(int[] a, int left, int right) {
-        if (left < right) {
-            int i;
-            int center = (left + right) / 2;
-            int p = 0;
-            int j = 0;
-            int k = left;
-
-            __mergeSort(a, left, center);        // 前半部をマージソート
-            __mergeSort(a, center + 1, right);    // 後半部をマージソート
-
-            for (i = left; i <= center; i++) {    //前半部分をbuffにコピー　①
-                buff[p++] = a[i];
-            }
-            while (i <= right && j < p) {        //後半部分とbuffをマージ ②
-                a[k++] = (buff[j] <= a[i]) ? buff[j++] : a[i++];
-            }
-            while (j < p) {                      //buffに残った要素をaにコピー ③
-                a[k++] = buff[j++];
-            }
-        }
+        return start+1;
     }
 }
 
