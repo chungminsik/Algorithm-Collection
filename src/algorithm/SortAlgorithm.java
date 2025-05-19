@@ -75,7 +75,6 @@ public class SortAlgorithm {
                     array[j] = change;
                 }
             }
-
         }
 
         return array;
@@ -90,8 +89,8 @@ public class SortAlgorithm {
             int mid = (left + right) / 2;
 
             //arrayを分割するスタックを作る
-            mergeSort(array, left, mid); //array1
-            mergeSort(array, mid+1, right);//array2
+            mergeSort(array, left, mid); //左の方にずっと分割していく
+            mergeSort(array, mid+1, right);//右の方にずっと分割していく
 
             //mergeする
             int[] merged = merge(array, left, mid, right);
@@ -169,6 +168,22 @@ public class SortAlgorithm {
         array[high] = temp;
 
         return start+1;
+    }
+
+
+    public static int[] newInsertionSort(int[] array){
+
+        for (int i = 0; i < array.length; i++){
+            for (int j = 0; j < i+1; j++){
+                if (array[i] < array[j]){
+                    int temp = array[j];
+                    array[j] = array[i];
+                    array[i] = temp;
+                }
+            }
+        }
+
+        return array;
     }
 }
 
