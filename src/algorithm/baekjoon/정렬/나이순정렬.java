@@ -11,21 +11,32 @@ public class 나이순정렬 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int n = Integer.parseInt(br.readLine());
-        String[][] users = new String[n][2];
+
+        String[][] user = new String[n][2];
 
         for (int i = 0; i < n; i++){
-            String[] user = br.readLine().split(" ");
-            users[i] = user;
+            String userInfo = br.readLine();
+            String[] userInfoArray = userInfo.split(" ");
+
+            user[i] = new String[] {userInfoArray[0], userInfo};
         }
 
+        Arrays.sort(user, (a, b) -> {
+            int intAgeA = Integer.parseInt(a[0]);
+            int intAgeB = Integer.parseInt(b[0]);
 
-//        Arrays.sort(users, (a, b) -> {
-//
-//        });
+            if (intAgeA < intAgeB){
+                return -1;
+            } else if (intAgeA == intAgeB){
+                return 0;
+            } else{
+                return 1;
+            }
+        });
 
         StringBuilder sb = new StringBuilder();
-        for (String[] user : users){
-            sb.append(user[0]).append(" ").append(user[1]).append("\n");
+        for (String[] userInfo : user){
+            sb.append(userInfo[1]).append("\n");
         }
         System.out.println(sb);
     }
