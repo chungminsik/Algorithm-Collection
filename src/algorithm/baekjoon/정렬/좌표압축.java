@@ -30,7 +30,6 @@ public class 좌표압축 {
         for (int i = 0; i < n; i++){
             int searchIndex = Arrays.binarySearch(setArray, array[i]);
             array[i] = searchIndex;
-
         }
 
         StringBuilder sb = new StringBuilder();

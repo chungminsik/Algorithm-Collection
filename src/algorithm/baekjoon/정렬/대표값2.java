@@ -1,5 +1,9 @@
 package algorithm.baekjoon.정렬;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class 대표값2 {
@@ -35,5 +39,41 @@ public class 대표값2 {
             }
         }
         return array[2];
+    }
+}
+
+class 대표값22{
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int[] array = new int[5];
+        array[0] = 0;
+        int total = 0;
+
+        for (int i = 0; i < 5; i++){
+            int input = Integer.parseInt(br.readLine());
+            total += input; //total 計算
+            /*
+            //定列
+            if (array[0] == 0){
+                array[i] = input;
+            } else{
+                for (int j = 0; j < i+1; j++){
+                    if (array[j] < input){
+                        int temp = input;
+                        input = array[j];
+                        array[j] = temp;
+                    }
+                }
+            }
+
+             */
+        }
+        br.close();
+        Arrays.sort(array);
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(total / 5).append("\n").append(array[2]);
+        System.out.println(sb);
     }
 }
